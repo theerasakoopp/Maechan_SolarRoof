@@ -1,0 +1,100 @@
+{
+  "municipality": "เทศบาลตำบลแม่จัน (Mae Chan Subdistrict Municipality)",
+  "province": "เชียงราย (Chiang Rai, Thailand)",
+  "area_km2": 2.22,
+  "total_facets": 10654,
+  "total_capacity_mwp": 60.83,
+  "total_generation_gwh_yr": 78.32,
+  "total_bill_savings_thb_m_yr": 352.44,
+  "total_co2_offset_tons_yr": 39152.2,
+  "standard_tariff_thb": 4.5,
+  "center": {
+    "lat": 20.146,
+    "lon": 99.8589,
+    "zoom": 16
+  },
+  "tiers": {
+    "Tier 3": {
+      "count": 3361,
+      "pct_count": 31.55,
+      "cap_mwp": 45.21,
+      "pct_mwp": 74.32,
+      "annual_gwh": 58.25,
+      "annual_thb_m": 262.12,
+      "co2_ton": 29118.35,
+      "color": "#f97316"
+    },
+    "Tier 2": {
+      "count": 2045,
+      "pct_count": 19.19,
+      "cap_mwp": 8.04,
+      "pct_mwp": 13.23,
+      "annual_gwh": 10.35,
+      "annual_thb_m": 46.56,
+      "co2_ton": 5171.79,
+      "color": "#eab308"
+    },
+    "Tier 1": {
+      "count": 2348,
+      "pct_count": 22.04,
+      "cap_mwp": 5.14,
+      "pct_mwp": 8.45,
+      "annual_gwh": 6.59,
+      "annual_thb_m": 29.68,
+      "co2_ton": 3296.75,
+      "color": "#06b6d4"
+    },
+    "Sub-optimal": {
+      "count": 2900,
+      "pct_count": 27.22,
+      "cap_mwp": 2.44,
+      "pct_mwp": 4.0,
+      "annual_gwh": 3.13,
+      "annual_thb_m": 14.09,
+      "co2_ton": 1565.28,
+      "color": "#64748b"
+    }
+  },
+  "orientations": {
+    "Sroof": {
+      "label": "South (ทิศใต้)",
+      "count": 2481,
+      "area_m2": 112854.7,
+      "cap_mwp": 13.54,
+      "annual_gwh": 18.49,
+      "annual_thb_m": 83.21
+    },
+    "Nroof": {
+      "label": "North (ทิศเหนือ)",
+      "count": 2352,
+      "area_m2": 108332.1,
+      "cap_mwp": 13.0,
+      "annual_gwh": 15.08,
+      "annual_thb_m": 67.86
+    },
+    "Eroof": {
+      "label": "East (ทิศตะวันออก)",
+      "count": 2356,
+      "area_m2": 94791.1,
+      "cap_mwp": 11.37,
+      "annual_gwh": 14.75,
+      "annual_thb_m": 66.38
+    },
+    "Wroof": {
+      "label": "West (ทิศตะวันตก)",
+      "count": 2455,
+      "area_m2": 103646.0,
+      "cap_mwp": 12.44,
+      "annual_gwh": 16.13,
+      "annual_thb_m": 72.58
+    },
+    "Froof": {
+      "label": "Flat (ดาดฟ้าเรียบ)",
+      "count": 1010,
+      "area_m2": 104754.8,
+      "cap_mwp": 10.48,
+      "annual_gwh": 13.87,
+      "annual_thb_m": 62.42
+    }
+  }
+}
