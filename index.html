@@ -32,26 +32,40 @@
         
         <div id="layer-panel" class="layer-panel">
             <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 10px;">
-                ภาพถ่ายทางอากาศ & แผนที่ฐาน
+                ภาพถ่ายทางอากาศ & ชั้นข้อมูล
             </div>
             
             <div class="layer-item">
                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" checked onchange="window.toggleUavLayer(this)">
+                    <input type="checkbox" id="chk-uav" checked onchange="window.toggleUavLayer(this)">
                     <span>🛸 UAV Orthophoto <b>(10 ซม.)</b></span>
                 </label>
             </div>
 
             <div class="layer-item">
                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" checked onchange="window.toggleFacetsLayer(this)">
-                    <span>🏠 ระนาบหลังคาโซลาร์ (10,654)</span>
+                    <input type="checkbox" id="chk-gt-facets" checked onchange="window.toggleGtFacetsLayer(this)">
+                    <span>🏢 ระนาบสำรวจจริง (GT: 10,654)</span>
                 </label>
             </div>
 
             <div class="layer-item">
                 <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" checked onchange="window.toggleAdminLayer(this)">
+                    <input type="checkbox" id="chk-ai-facets" onchange="window.toggleAiFacetsLayer(this)">
+                    <span>🤖 โพลีกอน AI Stage 05 (6,642)</span>
+                </label>
+            </div>
+
+            <div class="layer-item">
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                    <input type="checkbox" id="chk-ai-buildings" onchange="window.toggleAiBuildingsLayer(this)">
+                    <span>🏗️ อาคารรวม AI (1,569)</span>
+                </label>
+            </div>
+
+            <div class="layer-item">
+                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                    <input type="checkbox" id="chk-admin" checked onchange="window.toggleAdminLayer(this)">
                     <span>📍 ขอบเขตเทศบาลตำบลแม่จัน</span>
                 </label>
             </div>
@@ -90,8 +104,23 @@
             </button>
         </div>
 
+        <!-- Mode Switcher Bar -->
+        <div class="mode-switcher-bar">
+            <button class="mode-btn active" id="btn-mode-gt" onclick="window.setDashboardMode('gt')">
+                <span>🏢 สำรวจจริง</span>
+            </button>
+            <button class="mode-btn" id="btn-mode-ai" onclick="window.setDashboardMode('ai')">
+                <span>🤖 ทำนาย AI</span>
+            </button>
+            <button class="mode-btn" id="btn-mode-comp" onclick="window.setDashboardMode('compare')">
+                <span>⚖️ เทียบเคียง</span>
+            </button>
+        </div>
+
         <!-- Scrollable Analytics Body -->
         <div class="sidebar-body">
+            <!-- Dynamic Comparison Card Container (Shown in Compare Mode) -->
+            <div id="comparison-container" style="display: none;"></div>
             <!-- Municipal KPI Cards -->
             <div class="metrics-grid">
                 <div class="metric-card full-width">
