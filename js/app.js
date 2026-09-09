@@ -1,8 +1,7 @@
-/**
- * Mae Chan Rooftop Solar Potential WebGIS Dashboard
- * MapLibre GL JS + GeoAI Spatial Analytics Engine
- * Mode Support: Ground Truth Survey vs. AI Deep Learning Prediction (Stage 05)
- */
+// Top-level stub to prevent any early inline onclick errors
+window.setDashboardMode = function(mode) {
+    window._pendingMode = mode;
+};
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🚀 Initializing Mae Chan Solar WebGIS Engine (Dual Mode: GT & AI)...');
@@ -13,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let gtStats = null;
     let compStats = null;
     let currentMode = 'gt'; // 'gt', 'ai', 'compare'
+
 
     try {
         const [statsRes, compRes] = await Promise.all([
@@ -433,6 +433,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     };
+
+    // Attach explicit click listeners to buttons
+    document.getElementById('btn-mode-gt')?.addEventListener('click', () => window.setDashboardMode('gt'));
+    document.getElementById('btn-mode-ai')?.addEventListener('click', () => window.setDashboardMode('ai'));
+    document.getElementById('btn-mode-comp')?.addEventListener('click', () => window.setDashboardMode('compare'));
+
+    // Check if any mode was clicked before initialization completed
+    if (window._pendingMode) {
+        window.setDashboardMode(window._pendingMode);
+        window._pendingMode = null;
+    }
+
 
     // ── Tier Filter Controls ──
     window.toggleTier = function(tierName) {
