@@ -783,15 +783,15 @@ body.theme-light .layer-item:hover {
 }
 
 body.theme-light .maplibregl-popup-content {
-    background: rgba(255, 255, 255, 0.96) !important;
+    background: rgba(15, 23, 42, 0.96) !important;
     backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(15, 23, 42, 0.12) !important;
-    color: #0f172a !important;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid rgba(56, 189, 248, 0.3) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4) !important;
 }
 
 body.theme-light .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
-    border-top-color: rgba(255, 255, 255, 0.96) !important;
+    border-top-color: rgba(15, 23, 42, 0.96) !important;
 }
 
 body.theme-light .sidebar-footer {
@@ -806,5 +806,95 @@ body.theme-light .footer-link {
 
 body.theme-light .footer-link:hover {
     color: #0f172a;
+}
+
+/* ==========================================================================
+   Brand Header Edit Interactions & Modal Styles
+   ========================================================================== */
+#brand-container {
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    padding: 2px 4px;
+}
+
+#brand-container:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#brand-container:hover .title-edit-hint {
+    opacity: 1 !important;
+    transform: scale(1.15);
+}
+
+.title-edit-hint {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 6, 23, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInModal 0.2s ease-out;
+}
+
+.modal-card {
+    background: rgba(15, 23, 42, 0.98);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.15);
+    width: 92%;
+    max-width: 480px;
+    overflow: hidden;
+    animation: slideUpModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.6rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.modal-card-body {
+    padding: 22px 20px;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUpModal {
+    from { transform: translateY(22px) scale(0.96); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
 }
 

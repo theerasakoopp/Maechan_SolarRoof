@@ -1,6 +1,6 @@
 {
   "comparison_title": "Empirical Comparison: Ground Truth Survey vs. AI Model Prediction (Mae Chan)",
-  "timestamp": "2026-09-09 18:55:52",
+  "timestamp": "2026-09-12 10:57:46",
   "ground_truth": {
     "source": "Digitized Cadastral Survey (roof_mask.shp clipped to MC_admin.shp)",
     "total_facets": 10654,
@@ -94,106 +94,108 @@
     }
   },
   "ai_prediction": {
-    "model": "Champion U-Net (ResNet-101)",
+    "model": "Champion U-Net (ResNet-101) 5-Fold Model Soup",
     "input_features": "RGB + nDSM + Aspect + Slope",
-    "total_facets": 6642,
-    "total_capacity_mwp": 53.0,
-    "total_generation_gwh_yr": 60.29,
-    "total_bill_savings_thb_m_yr": 271.29,
-    "total_co2_offset_tons_yr": 30143.6,
-    "total_area_2d_m2": 478867.7,
-    "total_area_3d_m2": 493081.6,
+    "total_facets": 7209,
+    "total_buildings": 1769,
+    "total_capacity_mwp": 62.38,
+    "total_generation_gwh_yr": 71.51,
+    "total_bill_savings_thb_m_yr": 321.77,
+    "total_co2_offset_tons_yr": 35747.8,
+    "total_area_2d_m2": 568305.6,
+    "total_area_3d_m2": 584344.5,
+    "total_area_usable_m2": 311876.9,
     "tiers": {
-      "Tier 3": {
-        "count": 818,
-        "cap_mwp": 25.86,
-        "annual_gwh": 29.51,
-        "annual_thb_m": 132.81,
-        "co2_ton": 14757.09,
-        "color": "#f97316",
-        "pct_count": 12.32
-      },
       "Tier 2": {
-        "count": 2241,
-        "cap_mwp": 18.57,
-        "annual_gwh": 21.1,
-        "annual_thb_m": 94.93,
-        "co2_ton": 10547.91,
+        "count": 2483,
+        "cap_mwp": 20.84,
+        "annual_gwh": 23.79,
+        "annual_thb_m": 107.07,
         "color": "#eab308",
-        "pct_count": 33.74
+        "pct_count": 34.44,
+        "co2_ton": 11892.62
       },
       "Tier 1": {
-        "count": 1724,
-        "cap_mwp": 6.2,
-        "annual_gwh": 7.01,
-        "annual_thb_m": 31.57,
-        "co2_ton": 3507.33,
+        "count": 1868,
+        "cap_mwp": 6.77,
+        "annual_gwh": 7.7,
+        "annual_thb_m": 34.64,
         "color": "#06b6d4",
-        "pct_count": 25.96
+        "pct_count": 25.91,
+        "co2_ton": 3849.23
       },
       "Sub-optimal": {
-        "count": 1859,
-        "cap_mwp": 2.37,
-        "annual_gwh": 2.66,
-        "annual_thb_m": 11.98,
-        "co2_ton": 1331.26,
+        "count": 1924,
+        "cap_mwp": 2.35,
+        "annual_gwh": 2.63,
+        "annual_thb_m": 11.85,
         "color": "#64748b",
-        "pct_count": 27.99
+        "pct_count": 26.69,
+        "co2_ton": 1314.74
+      },
+      "Tier 3": {
+        "count": 934,
+        "cap_mwp": 32.42,
+        "annual_gwh": 37.38,
+        "annual_thb_m": 168.21,
+        "color": "#f97316",
+        "pct_count": 12.96,
+        "co2_ton": 18686.26
       }
     },
     "orientations": {
-      "Sroof": {
-        "label": "South (ทิศใต้)",
-        "count": 1398,
-        "area_m2": 101899.2,
-        "cap_mwp": 12.23,
-        "annual_gwh": 13.96,
-        "annual_thb_m": 62.8
-      },
       "Nroof": {
         "label": "North (ทิศเหนือ)",
-        "count": 1311,
-        "area_m2": 94257.4,
-        "cap_mwp": 11.31,
-        "annual_gwh": 12.59,
-        "annual_thb_m": 56.67
+        "count": 1446,
+        "area_m2": 108494.2,
+        "cap_mwp": 13.44,
+        "annual_gwh": 15.0,
+        "annual_thb_m": 67.51
       },
       "Eroof": {
         "label": "East (ทิศตะวันออก)",
-        "count": 1349,
-        "area_m2": 86161.0,
-        "cap_mwp": 10.34,
-        "annual_gwh": 11.68,
-        "annual_thb_m": 52.58
+        "count": 1460,
+        "area_m2": 94120.6,
+        "cap_mwp": 11.66,
+        "annual_gwh": 13.23,
+        "annual_thb_m": 59.53
+      },
+      "Sroof": {
+        "label": "South (ทิศใต้)",
+        "count": 1515,
+        "area_m2": 111911.9,
+        "cap_mwp": 13.89,
+        "annual_gwh": 15.97,
+        "annual_thb_m": 71.89
       },
       "Wroof": {
         "label": "West (ทิศตะวันตก)",
-        "count": 1386,
-        "area_m2": 94257.7,
-        "cap_mwp": 11.31,
-        "annual_gwh": 12.82,
-        "annual_thb_m": 57.71
+        "count": 1511,
+        "area_m2": 105068.2,
+        "cap_mwp": 13.0,
+        "annual_gwh": 14.85,
+        "annual_thb_m": 66.83
       },
       "Froof": {
         "label": "Flat (ดาดฟ้าเรียบ)",
-        "count": 649,
-        "area_m2": 78113.6,
-        "cap_mwp": 7.81,
-        "annual_gwh": 9.23,
-        "annual_thb_m": 41.54
+        "count": 644,
+        "area_m2": 102704.7,
+        "cap_mwp": 10.39,
+        "annual_gwh": 12.45,
+        "annual_thb_m": 56.02
       },
       "Uroof": {
         "label": "Unsuitable (ไม่เหมาะสม)",
-        "count": 511,
-        "area_m2": 36256.9,
+        "count": 589,
+        "area_m2": 41746.5,
         "cap_mwp": 0.0,
         "annual_gwh": 0.0,
         "annual_thb_m": 0.0
       },
       "PV": {
         "label": "Existing PV (มีโซลาร์เดิม)",
-        "count": 38,
-        "area_m2": 2135.8,
+        "count": 44,
+        "area_m2": 4259.6,
         "cap_mwp": 0.0,
         "annual_gwh": 0.0,
         "annual_thb_m": 0.0
@@ -201,11 +203,11 @@
     }
   },
   "metrics_diff": {
-    "facet_count_diff": -4012,
-    "facet_count_pct_ratio": 62.34,
-    "capacity_mwp_diff": -7.83,
-    "capacity_pct_ratio": 87.13,
-    "generation_gwh_diff": -18.03,
-    "generation_pct_ratio": 76.98
+    "facet_count_diff": -3445,
+    "facet_count_pct_ratio": 67.66,
+    "capacity_mwp_diff": 1.55,
+    "capacity_pct_ratio": 102.55,
+    "generation_gwh_diff": -6.81,
+    "generation_pct_ratio": 91.3
   }
 }
