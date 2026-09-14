@@ -1,25 +1,57 @@
 # Maechan_SolarRoof Git Sync & Deploy Script
 param (
-    [string]$msg = "Deploy Mae Chan SolarRoof WebGIS Dashboard ($(Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))"
+    [string]$msg = "Deploy Maechan Smart SolarRoof WebGIS ($(Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))"
 )
 
-$gitPath = "C:\Users\theerasak\AppData\Local\GitHubDesktop\app-3.6.5\resources\app\git\cmd\git.exe"
-if (-not (Test-Path $gitPath)) {
-    $gitPath = "git"
+# Detect Git path
+$gitCandidates = @(
+    "C:\Program Files\Git\cmd\git.exe",
+    "C:\Users\$env:USERNAME\AppData\Local\GitHubDesktop\app-3.6.5\resources\app\git\cmd\git.exe"
+)
+
+$gitPath = "git"
+foreach ($candidate in $gitCandidates) {
+    if (Test-Path $candidate) {
+        $gitPath = $candidate
+        break
+    }
+}
+if ($gitPath -eq "git") {
+    $found = Get-Command "git" -ErrorAction SilentlyContinue
+    if ($found) {
+        $gitPath = $found.Source
+    }
 }
 
 Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host " 🚀 Maechan_SolarRoof: Git Sync & Deploy" -ForegroundColor Yellow
 Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "Using Git: $gitPath"
+Write-Host "Repository: D:\UAV-SolarNet\Maechan_SolarRoof" -ForegroundColor Gray
+Write-Host "Using Git: $gitPath" -ForegroundColor Gray
+Write-Host ""
 
-Write-Host "1. Staging changes..." -ForegroundColor Gray
+Set-Location -Path $PSScriptRoot
+
+Write-Host "1. Staging changes..." -ForegroundColor Cyan
 & $gitPath add -A
 
-Write-Host "2. Committing..." -ForegroundColor Gray
-& $gitPath commit -m "$msg"
+$status = & $gitPath status --porcelain
+if ([string]::IsNullOrWhiteSpace($status)) {
+    Write-Host "[INFO] Working tree is clean. No new changes to commit." -ForegroundColor Yellow
+} else {
+    Write-Host "2. Committing changes..." -ForegroundColor Cyan
+    & $gitPath commit -m "$msg"
+}
 
 Write-Host "3. Pushing to GitHub (main branch)..." -ForegroundColor Cyan
 & $gitPath push origin main
 
-Write-Host "[SUCCESS] Pushed to https://github.com/theerasakoopp/Maechan_SolarRoof" -ForegroundColor Green
+if ($LASTEXITCODE -eq 0) {
+    Write-Host ""
+    Write-Host "========================================================" -ForegroundColor Green
+    Write-Host " [SUCCESS] Pushed to https://github.com/theerasakoopp/Maechan_SolarRoof" -ForegroundColor Green
+    Write-Host " Live Site: https://theerasakoopp.github.io/Maechan_SolarRoof/" -ForegroundColor Green
+    Write-Host "========================================================" -ForegroundColor Green
+} else {
+    Write-Host "[ERROR] Git push failed. Please check your network or credentials." -ForegroundColor Red
+}
